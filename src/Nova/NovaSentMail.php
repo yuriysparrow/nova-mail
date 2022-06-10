@@ -7,7 +7,7 @@ use Laravel\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\MorphTo;
-use Laravel\Nova\Fields\DateTime;
+use Wdelfuego\Nova\DateTime\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsTo;
 use KirschbaumDevelopment\NovaMail\Models\NovaSentMail as NovaSentMailModel;
@@ -57,7 +57,7 @@ class NovaSentMail extends Resource
                     return trim(strip_tags($content));
                 })
                 ->alwaysShow(),
-            DateTime::make('Sent At', 'created_at')->format('M/D/Y h:mm:ss a'),
+            DateTime::make('Sent At', 'created_at')->withDateFormat('M/D/Y h:mm:ss a'),
         ];
     }
 
